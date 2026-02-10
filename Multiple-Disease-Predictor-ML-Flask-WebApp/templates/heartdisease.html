@@ -1,0 +1,133 @@
+{%extends "layout.html"%}
+{%block content%}
+
+<div class="form-container">
+  <div class="form-title">
+    <h1>Heart Disease Prediction</h1>
+    <p>Assessment based on cardiovascular metrics</p>
+  </div>
+
+  <div class="card">
+    <form action="{{url_for('predictheartdisease')}}" method="post">
+      <fieldset class="form-fieldset">
+        <legend class="form-legend">Cardiovascular Information</legend>
+        
+        <div class="form-group">
+          <label for="field1">Age (years)</label>
+          <input type="number" step="1" placeholder="e.g., 45" class="input-field" name="field1" required id="field1" />
+        </div>
+
+        <div class="form-group">
+          <label for="field2">Sex</label>
+          <select name="field2" id="field2" required>
+            <option value="">-- Select --</option>
+            <option value="0">Female (0)</option>
+            <option value="1">Male (1)</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="field3">Chest Pain Type</label>
+          <select name="field3" id="field3" required>
+            <option value="">-- Select --</option>
+            <option value="0">Typical Angina (0)</option>
+            <option value="1">Atypical Angina (1)</option>
+            <option value="2">Non-anginal Pain (2)</option>
+            <option value="3">Asymptomatic (3)</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="field4">Resting Blood Pressure (mmHg)</label>
+          <input type="number" step="0.01" placeholder="e.g., 140" class="input-field" name="field4" required id="field4" />
+        </div>
+
+        <div class="form-group">
+          <label for="field5">Serum Cholesterol (mg/dL)</label>
+          <input type="number" step="0.01" placeholder="e.g., 240" class="input-field" name="field5" required id="field5" />
+        </div>
+
+        <div class="form-group">
+          <label for="field6">Fasting Blood Sugar > 120 mg/dL</label>
+          <select name="field6" id="field6" required>
+            <option value="">-- Select --</option>
+            <option value="0">No (0)</option>
+            <option value="1">Yes (1)</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="field7">Resting ECG Results</label>
+          <select name="field7" id="field7" required>
+            <option value="">-- Select --</option>
+            <option value="0">Normal (0)</option>
+            <option value="1">ST-T Abnormality (1)</option>
+            <option value="2">LV Hypertrophy (2)</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="field8">Max Heart Rate Achieved</label>
+          <input type="number" step="0.01" placeholder="e.g., 150" class="input-field" name="field8" required id="field8" />
+        </div>
+
+        <div class="form-group">
+          <label for="field9">Exercise Induced Angina</label>
+          <select name="field9" id="field9" required>
+            <option value="">-- Select --</option>
+            <option value="0">No (0)</option>
+            <option value="1">Yes (1)</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="field10">ST Depression (Old Peak)</label>
+          <input type="number" step="0.01" placeholder="e.g., 2.5" class="input-field" name="field10" required id="field10" />
+        </div>
+
+        <div class="form-group">
+          <label for="field11">ST Slope</label>
+          <select name="field11" id="field11" required>
+            <option value="">-- Select --</option>
+            <option value="0">Upsloping (0)</option>
+            <option value="1">Flat (1)</option>
+            <option value="2">Downsloping (2)</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="field12">Major Vessels Colored</label>
+          <select name="field12" id="field12" required>
+            <option value="">-- Select --</option>
+            <option value="0">0 vessels</option>
+            <option value="1">1 vessel</option>
+            <option value="2">2 vessels</option>
+            <option value="3">3 vessels</option>
+            <option value="4">4 vessels</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="field13">Thalassemia Type</label>
+          <select name="field13" id="field13" required>
+            <option value="">-- Select --</option>
+            <option value="0">Normal (0)</option>
+            <option value="1">Fixed Defect (1)</option>
+            <option value="2">Reversible Defect (2)</option>
+            <option value="3">Severe (3)</option>
+          </select>
+        </div>
+
+        <input type="submit" value="Get Prediction" style="width: 100%; margin-top: 20px;" />
+      </fieldset>
+    </form>
+
+    {% if output_text %}
+    <div class="prediction-result show" style="display: block; margin-top: 20px;">
+      {{output_text}}
+    </div>
+    {% endif %}
+  </div>
+</div>
+
+{%endblock%}

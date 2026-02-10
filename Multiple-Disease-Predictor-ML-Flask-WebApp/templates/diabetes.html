@@ -1,0 +1,76 @@
+{%extends "layout.html"%}
+{%block content%}
+
+<div class="form-container">
+  <div class="form-title">
+    <h1>Diabetes Prediction</h1>
+    <p>Provide your health metrics for assessment</p>
+  </div>
+
+  <div class="card">
+    <form action="{{url_for('predictdiabetes')}}" method="post">
+      <fieldset class="form-fieldset">
+        <legend class="form-legend">Health Information</legend>
+        
+        <div class="form-group">
+          <label for="field1">Pregnancies</label>
+          <input type="number" step="0.01" placeholder="e.g., 3" class="input-field" name="field1" required id="field1" />
+          <small style="color: #999;">Number of pregnancies (0-17)</small>
+        </div>
+
+        <div class="form-group">
+          <label for="field2">Glucose Level (mg/dL)</label>
+          <input type="number" step="0.01" placeholder="e.g., 120" class="input-field" name="field2" required id="field2" />
+          <small style="color: #999;">Fasting glucose level (0-199)</small>
+        </div>
+
+        <div class="form-group">
+          <label for="field3">Blood Pressure (mmHg)</label>
+          <input type="number" step="0.01" placeholder="e.g., 80" class="input-field" name="field3" required id="field3" />
+          <small style="color: #999;">Diastolic blood pressure (0-122)</small>
+        </div>
+
+        <div class="form-group">
+          <label for="field4">Skin Thickness (mm)</label>
+          <input type="number" step="0.01" placeholder="e.g., 25" class="input-field" name="field4" required id="field4" />
+          <small style="color: #999;">Triceps skin fold (0-99)</small>
+        </div>
+
+        <div class="form-group">
+          <label for="field5">Insulin Level (mIU/mL)</label>
+          <input type="number" step="0.01" placeholder="e.g., 100" class="input-field" name="field5" required id="field5" />
+          <small style="color: #999;">2-hour serum insulin (0-846)</small>
+        </div>
+
+        <div class="form-group">
+          <label for="field6">BMI (kg/m²)</label>
+          <input type="number" step="0.01" placeholder="e.g., 25.5" class="input-field" name="field6" required id="field6" />
+          <small style="color: #999;">Body Mass Index (0-67)</small>
+        </div>
+
+        <div class="form-group">
+          <label for="field7">Diabetes Pedigree Function</label>
+          <input type="number" step="0.01" placeholder="e.g., 0.5" class="input-field" name="field7" required id="field7" />
+          <small style="color: #999;">Genetic predisposition score (0.078-2.420)</small>
+        </div>
+
+        <div class="form-group">
+          <label for="field8">Age (years)</label>
+          <input type="number" step="1" placeholder="e.g., 35" class="input-field" name="field8" required id="field8" />
+          <small style="color: #999;">Your age in years</small>
+        </div>
+
+        <input type="submit" value="Get Prediction" style="width: 100%; margin-top: 20px;" />
+      </fieldset>
+    </form>
+
+    {% if output_text %}
+    <div class="prediction-result show" style="display: block; margin-top: 20px;">
+      {{output_text}}
+    </div>
+    {% endif %}
+  </div>
+</div>
+
+{%endblock%}
+  

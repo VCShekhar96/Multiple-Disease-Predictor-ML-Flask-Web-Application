@@ -1,0 +1,42 @@
+{%extends "layout.html"%}
+{%block content%}
+
+<div class="hero">
+  <h1>Welcome to Disease Predictor</h1>
+  <p>Advanced machine learning technology for early disease detection</p>
+</div>
+
+<div>
+  <h2 style="text-align: center; margin-bottom: 32px; color: var(--blue);">Our Services</h2>
+  
+  <div class="disease-grid">
+    <div class="disease-card">
+      <div style="font-size: 2.5rem; margin-bottom: 12px;">🩺</div>
+      <h3>Diabetes Prediction</h3>
+      <p>Identify the risk of developing diabetes based on health metrics and medical history.</p>
+      <a href="{{ url_for('diabetes') }}">Get Started →</a>
+    </div>
+
+    <div class="disease-card">
+      <div style="font-size: 2.5rem; margin-bottom: 12px;">❤️</div>
+      <h3>Heart Disease Prediction</h3>
+      <p>Assess your cardiovascular health risk with our advanced prediction model.</p>
+      <a href="{{ url_for('heartdisease') }}">Get Started →</a>
+    </div>
+
+    <div class="disease-card">
+      <div style="font-size: 2.5rem; margin-bottom: 12px;">🧠</div>
+      <h3>Parkinsons Prediction</h3>
+      <p>Early detection of Parkinson's disease using voice and speech analysis.</p>
+      <a href="{{ url_for('parkinsons') }}">Get Started →</a>
+    </div>
+  </div>
+</div>
+
+<div class="card" style="background: linear-gradient(135deg, rgba(11, 79, 108, 0.05), rgba(126, 200, 227, 0.05)); border-left: 5px solid var(--yellow); max-width: 800px; margin: 40px auto;">
+  <h3 style="color: var(--blue);">About This Platform</h3>
+  <p>Our Multiple Disease Predictor uses state-of-the-art machine learning models trained on extensive medical datasets. This platform provides preliminary assessments based on health metrics you provide.</p>
+  <p style="color: #666; font-size: 0.95rem;"><strong>⚠️ Important Disclaimer:</strong> This tool is for educational and informational purposes only. It should not be used as a substitute for professional medical advice, diagnosis, or treatment. Always consult with a qualified healthcare professional for any health concerns.</p>
+</div>
+
+{%endblock%}
